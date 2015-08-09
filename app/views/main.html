@@ -1,0 +1,93 @@
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#/">
+                    <span class="light">PLANISTO</span>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a  href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="modal" data-target="#loginModal">login</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse --> 
+        </div>
+        <!-- /.container -->
+    </nav>
+
+<!-- Intro Header -->
+<header class="intro">
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 container-panel">
+          <h1 class="brand-heading section-title">Planisto</h1>
+          <h5>Your personal Event planner</h5>
+          <div class="vspacer30"></div>
+          <form role="form" ng-submit="getLatLngFromAddress()">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group input-box">
+                  <md-autocomplete
+                    md-selected-item="selectedItem"
+                    md-search-text-change="null"
+                    md-search-text="searchText"
+                    md-selected-item-change="catAutocomplete(searchText)"
+                    md-items="item in catAutocomplete(searchText)"
+                    md-item-text="item.name"
+                    md-min-length="1"
+                    placeholder="What are you planning today?">
+                    <md-item-template>
+                      <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.name}}</span>
+                    </md-item-template>
+                    <md-not-found>No matches found for "{{searchText}}".</md-not-found>
+                  </md-autocomplete>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group input-box">
+                  <label class="sr-only" for="location">Location</label>
+                  <md-autocomplete 
+                    md-selected-item="address" 
+                    md-search-text-change="null" 
+                    md-search-text="addrSearchText" 
+                    md-items="place in getLocations(addrSearchText)" 
+                    md-selected-item-change="null" 
+                    md-item-text="place.description" 
+                    placeholder="Location?">
+                    <md-item-template>
+                      <span md-highlight-text="addrSearchText" md-highlight-flags="^i">{{place.description}}</span>
+                    </md-item-template>
+                    <md-not-found>No matches found for "{{addrSearchText}}".</md-not-found>
+                  </md-autocomplete>
+                </div>
+              </div>
+              <div class="col-md-2">
+                
+                 <a href="#/search"> <button type="button" class="btn btn-search">Search</button>
+              
+              </div>
+            </div>
+          </form>
+          <div class="vspacer30"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
