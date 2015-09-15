@@ -14,7 +14,9 @@ module.exports = function (grunt) {
 
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
-    useminPrepare: 'grunt-usemin'
+    useminPrepare: 'grunt-usemin',
+    ngtemplates: 'grunt-angular-templates',
+    cdnify: 'grunt-google-cdn'
   });
 
   // Configurable paths for the application
@@ -372,7 +374,14 @@ module.exports = function (grunt) {
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
-        }]
+        },
+        {
+//for font-awesome
+          expand: true,
+          cwd: 'bower_components/fontawesome',
+          src: 'fonts/*',
+          dest: '<%= yeoman.dist %>'
+      }]
       },
       styles: {
         expand: true,

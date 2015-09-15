@@ -8,7 +8,7 @@
  * Controller of the planistoApp
  */
 angular.module('planistoApp')
-  .controller('LoginCtrl', function ($scope) {
+  .controller('LoginCtrl', function ($scope, $http) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -27,4 +27,16 @@ angular.module('planistoApp')
     $scope.login = false;
     $scope.register = true;
   }
+
+  $scope.user = {};
+
+  $scope.signin = function() {
+    var authRequest = {email : $scope.user.email, password : $scope.user.password};
+    $http.post('http://localhost:4100/auth/login', authRequest)
+    .success(function(response , data) {
+      alert(data);
+    });
+    
+  }
+  
   });

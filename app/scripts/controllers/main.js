@@ -8,7 +8,7 @@
  * Controller of the planistoApp
  */
 angular.module('planistoApp')
-  .controller('MainCtrl', function ($scope, searchService, $q) {
+  .controller('MainCtrl', function ($scope, searchService, $q, $rootScope) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,7 +16,6 @@ angular.module('planistoApp')
     ];
   $scope.selectedItem;
 
-  $scope.address = "";
   $scope.lat = "";
   $scope.lng = "";
   

@@ -1,4 +1,4 @@
-
+<!-- 
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -8,10 +8,11 @@
                     <span class="light">PLANISTO</span>
                 </a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
+           
+            
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                   
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
@@ -22,23 +23,24 @@
                         <a href="#contact">Contact</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="modal" data-target="#loginModal">login</a>
+                        <a href="javascript:;" data-toggle="modal" data-target="#loginModal">Login</a>
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse --> 
+          
         </div>
-        <!-- /.container -->
-    </nav>
+        
+    </nav> -->
+  
 
 <!-- Intro Header -->
-<header class="intro">
+<header class="intro" ng-show="$root.address == null">
   <div class="intro-body">
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 container-panel">
           <h1 class="brand-heading section-title">Planisto</h1>
-          <h5>Your personal Event planner</h5>
+          <h5 >Your personal Event planner</h5>
           <div class="vspacer30"></div>
           <form role="form" ng-submit="getLatLngFromAddress()">
             <div class="row">
@@ -64,7 +66,7 @@
                 <div class="form-group input-box">
                   <label class="sr-only" for="location">Location</label>
                   <md-autocomplete 
-                    md-selected-item="address" 
+                    md-selected-item="$root.address" 
                     md-search-text-change="null" 
                     md-search-text="addrSearchText" 
                     md-items="place in getLocations(addrSearchText)" 
